@@ -654,18 +654,6 @@
   #examPauseOverlay { position:absolute; inset:0; background:rgba(7,8,10,0.92); border-radius:24px; display:none; align-items:center; justify-content:center; flex-direction:column; z-index:10; }
   #examPauseOverlay .pause-title { font-family:'Bebas Neue',sans-serif; font-size:48px; color:white; letter-spacing:0.1em; }
 
-  /* ── MAP TAB ── */
-  #mapContainer { position:relative; width:100%; aspect-ratio:2/1; max-height:420px; background:rgba(8,12,16,0.8); border:1px solid var(--border); border-radius:16px; overflow:hidden; margin-bottom:16px; cursor:none; }
-  #worldMapCanvas { width:100%; height:100%; display:block; }
-  #mapTooltip { position:absolute; background:rgba(10,14,18,0.95); border:1px solid rgba(62,184,154,0.3); border-radius:8px; padding:7px 12px; font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.15em; color:var(--teal); pointer-events:none; display:none; z-index:10; white-space:nowrap; }
-  #mapLegend { position:absolute; bottom:12px; left:12px; background:rgba(8,12,16,0.88); border:1px solid var(--border); border-radius:10px; padding:10px 14px; }
-  .map-legend-title { font-size:7px; letter-spacing:0.35em; color:var(--muted); text-transform:uppercase; font-family:'DM Mono',monospace; margin-bottom:7px; }
-  .map-legend-item { display:flex; align-items:center; gap:7px; font-size:9px; color:var(--muted2); font-family:'DM Mono',monospace; letter-spacing:0.08em; margin-bottom:4px; }
-  .map-dot { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
-  #mapInfoPanel { background:rgba(13,15,18,0.9); border:1px solid var(--border); border-radius:14px; padding:24px 28px; }
-  #mapInfoTitle { font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:0.1em; color:var(--teal); margin-bottom:10px; }
-  #mapInfoBody { font-family:'Crimson Pro',serif; font-size:15px; color:#94a3b8; line-height:1.65; }
-
   /* ── PRINT CHEAT SHEET ── */
   #printBtn { background:rgba(62,184,154,0.08); border:1px solid rgba(62,184,154,0.25); color:var(--teal); border-radius:10px; padding:9px 18px; font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.2em; cursor:none; transition:all 0.2s; margin-top:16px; }
   #printBtn:hover { background:rgba(62,184,154,0.16); }
@@ -757,7 +745,6 @@
     <button class="nav-btn" data-tab="timeline" onclick="switchTab('timeline','#c8374a')"><div class="nav-indicator"></div><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b07aee" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><span class="nav-label">TIMELINE</span></button>
     <button class="nav-btn" data-tab="studyhub" onclick="switchTab('studyhub','#c8374a')"><div class="nav-indicator"></div><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8374a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span><span class="nav-label">STUDY HUB</span></button>
     <button class="nav-btn" data-tab="glossary" onclick="switchTab('glossary','#b07aee')"><div class="nav-indicator"></div><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b07aee" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span><span class="nav-label">GLOSSARY</span></button>
-    <button class="nav-btn" data-tab="map" onclick="switchTab('map','#3eb89a')"><div class="nav-indicator"></div><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3eb89a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></span><span class="nav-label">MAP</span></button>
   </nav>
   <div class="sidebar-footer"><div class="dot"></div><span>UNIT 5 · REVOLUTIONS & ENLIGHTENMENT</span><button onclick="openUpdateLog()" id="versionBadge" style="margin-left:auto;font-size:8px;color:var(--steam);letter-spacing:0.1em;opacity:0;transition:opacity 0.3s;flex-shrink:0;background:rgba(200,55,74,0.1);border:1px solid rgba(200,55,74,0.25);border-radius:5px;padding:3px 7px;cursor:none;font-family:'DM Mono',monospace">V1.2 ↗</button></div>
 </aside>
@@ -819,7 +806,6 @@
       <div class="dash-tab-card" style="--tab-color:#c8374a;--card-glow:radial-gradient(ellipse at 0% 0%, rgba(200,55,74,0.05), transparent)" onclick="switchTab('timeline','#c8374a');markVisited('vis-timeline')"><div id="vis-timeline" class="dtc-visited"></div><div class="dtc-icon">📜</div><div class="dtc-name">TIMELINE</div><div class="dtc-desc">1750–1900 key events — filterable by revolution, industry, and labor.</div><div class="dtc-time">⏱ ~8 min</div></div>
       <div class="dash-tab-card" style="--tab-color:#c8374a;--card-glow:radial-gradient(ellipse at 0% 0%, rgba(200,55,74,0.05), transparent)" onclick="switchTab('studyhub','#c8374a');markVisited('vis-studyhub')"><div id="vis-studyhub" class="dtc-visited"></div><div class="dtc-icon">⚡</div><div class="dtc-name">STUDY HUB</div><div class="dtc-desc">Quiz, Drill Mode, Essay Outline — all study tools in one place.</div><div class="dtc-time">⏱ Practice</div></div>
       <div class="dash-tab-card" style="--tab-color:#b07aee;--card-glow:radial-gradient(ellipse at 0% 0%, rgba(176,122,238,0.05), transparent)" onclick="switchTab('glossary','#b07aee');markVisited('vis-glossary')"><div id="vis-glossary" class="dtc-visited"></div><div class="dtc-icon">📖</div><div class="dtc-name">GLOSSARY</div><div class="dtc-desc">30 flip cards — every key term defined with AP exam frequency.</div><div class="dtc-time">⏱ ~15 min</div></div>
-      <div class="dash-tab-card" style="--tab-color:#3eb89a;--card-glow:radial-gradient(ellipse at 0% 0%, rgba(62,184,154,0.05), transparent)" onclick="switchTab('map','#3eb89a');markVisited('vis-map')"><div id="vis-map" class="dtc-visited"></div><div class="dtc-icon">🗺️</div><div class="dtc-name">REVOLUTION MAP</div><div class="dtc-desc">Interactive world map — click regions to explore revolutionary movements.</div><div class="dtc-time">⏱ ~6 min</div></div>
     </div>
 
     <div class="dash-focus" id="dashFocus">
@@ -1474,28 +1460,6 @@
     </div>
     <div class="glossary-grid" id="glossaryGrid"></div>
   </div>
-
-  <!-- ═══ MAP TAB ═══ -->
-  <div class="tab-content" id="tab-map">
-    <div class="section-header"><div class="section-title">WORLD MAP <span style="color:var(--teal)">c. 1750–1900</span></div><div class="section-sub">Click a region to explore key events and connections</div></div>
-    <div id="mapContainer">
-      <canvas id="worldMapCanvas"></canvas>
-      <div id="mapTooltip"></div>
-      <div id="mapLegend">
-        <div class="map-legend-title">REGIONS</div>
-        <div class="map-legend-item"><span class="map-dot" style="background:#c8374a"></span>Atlantic Revolutions</div>
-        <div class="map-legend-item"><span class="map-dot" style="background:#e87840"></span>Industrialization</div>
-        <div class="map-legend-item"><span class="map-dot" style="background:#3eb89a"></span>Defensive Modernization</div>
-        <div class="map-legend-item"><span class="map-dot" style="background:#b07aee"></span>Nationalism</div>
-        <div class="map-legend-item"><span class="map-dot" style="background:#7b9fd4"></span>Imperialism</div>
-      </div>
-    </div>
-    <div id="mapInfoPanel">
-      <div id="mapInfoTitle">SELECT A REGION</div>
-      <div id="mapInfoBody">Click any highlighted region on the map to see key events, figures, and AP connections.</div>
-    </div>
-  </div>
-
 </main>
 
 <!-- DYK CARD -->
