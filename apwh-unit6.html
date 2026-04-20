@@ -597,7 +597,6 @@
     <button class="nav-btn" data-tab="timeline" onclick="switchTab('timeline','#e87840')"><div class="nav-indicator"></div><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e87840" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="17" y1="12" x2="3" y2="12"/><polyline points="11 18 5 12 11 6"/><line x1="21" y1="6" x2="21" y2="18"/></svg></span><span class="nav-label">TIMELINE</span></button>
     <button class="nav-btn" data-tab="studyhub" onclick="switchTab('studyhub','#e87840')"><div class="nav-indicator"></div><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e87840" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span><span class="nav-label">STUDY HUB</span></button>
     <button class="nav-btn" data-tab="glossary" onclick="switchTab('glossary','#a78bfa')"><div class="nav-indicator"></div><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span><span class="nav-label">GLOSSARY</span></button>
-    <button class="nav-btn" data-tab="map" onclick="switchTab('map','#3eb89a')"><div class="nav-indicator"></div><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3eb89a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></span><span class="nav-label">EMPIRE MAP</span></button>
   </nav>
   <div class="sidebar-footer"><div class="dot"></div><span>UNIT 6 · INDUSTRIALIZATION & IMPERIALISM</span><button onclick="openUpdateLog()" id="versionBadge" style="margin-left:auto;font-size:8px;color:var(--iron);letter-spacing:0.1em;opacity:0;transition:opacity 0.3s;flex-shrink:0;background:rgba(200,55,74,0.1);border:1px solid rgba(200,55,74,0.25);border-radius:5px;padding:3px 7px;cursor:none;font-family:'DM Mono',monospace">V1.0 ↗</button></div>
 </aside>
@@ -642,7 +641,6 @@
       <div class="dash-tab-card" style="--tab-color:#e87840;--card-glow:radial-gradient(ellipse at 0% 0%, rgba(200,55,74,0.05), transparent)" onclick="switchTab('timeline','#c8374a');markVisited('vis-timeline')"><div id="vis-timeline" class="dtc-visited"></div><div class="dtc-icon">📅</div><div class="dtc-name">TIMELINE</div><div class="dtc-desc">1712–1914 key events filterable by Britain, Spread, Labor, Technology, Imperialism.</div><div class="dtc-time">⏱ ~8 min</div></div>
       <div class="dash-tab-card" style="--tab-color:#e87840;--card-glow:radial-gradient(ellipse at 0% 0%, rgba(200,55,74,0.05), transparent)" onclick="switchTab('studyhub','#c8374a');markVisited('vis-studyhub')"><div id="vis-studyhub" class="dtc-visited"></div><div class="dtc-icon">⚡</div><div class="dtc-name">STUDY HUB</div><div class="dtc-desc">Quiz, Drill Mode, Essay Outline — all study tools in one place.</div><div class="dtc-time">⏱ Practice</div></div>
       <div class="dash-tab-card" style="--tab-color:#a78bfa;--card-glow:radial-gradient(ellipse at 0% 0%, rgba(167,139,250,0.05), transparent)" onclick="switchTab('glossary','#a78bfa');markVisited('vis-glossary')"><div id="vis-glossary" class="dtc-visited"></div><div class="dtc-icon">📖</div><div class="dtc-name">GLOSSARY</div><div class="dtc-desc">42 flip cards — every key term defined with AP exam frequency.</div><div class="dtc-time">⏱ ~18 min</div></div>
-      <div class="dash-tab-card" style="--tab-color:#3eb89a;--card-glow:radial-gradient(ellipse at 0% 0%, rgba(62,184,154,0.05), transparent)" onclick="switchTab('map','#3eb89a');markVisited('vis-map')"><div id="vis-map" class="dtc-visited"></div><div class="dtc-icon">🗺️</div><div class="dtc-name">EMPIRE MAP</div><div class="dtc-desc">Interactive world map — click regions to explore industrialization and imperial expansion.</div><div class="dtc-time">⏱ ~6 min</div></div>
     </div>
     <div class="dash-focus" id="dashFocus">
       <div class="dash-focus-label">TODAY'S FOCUS</div>
@@ -1061,30 +1059,6 @@
     </div>
   </div>
 
-  <!-- ═══ EMPIRE MAP ═══ -->
-  <div class="tab-content" id="tab-map">
-    <div class="page-header">
-      <span class="unit-tag">Unit 6 · Global Context</span>
-      <h2>EMPIRE MAP</h2>
-      <p>CLICK ANY REGION TO EXPLORE INDUSTRIALIZATION & IMPERIALISM</p>
-    </div>
-    <div id="mapContainer" style="position:relative;width:100%;aspect-ratio:2/1;max-height:420px;background:rgba(6,8,11,0.8);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:16px;cursor:none">
-      <canvas id="worldMapCanvas" style="width:100%;height:100%;display:block"></canvas>
-      <div id="mapTooltip" style="position:absolute;background:rgba(6,8,11,0.95);border:1px solid rgba(62,184,154,0.3);border-radius:8px;padding:7px 12px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;color:var(--teal);pointer-events:none;display:none;z-index:10;white-space:nowrap"></div>
-      <div style="position:absolute;bottom:12px;left:12px;background:rgba(6,8,11,0.88);border:1px solid var(--border);border-radius:10px;padding:10px 14px">
-        <div style="font-size:7px;letter-spacing:0.35em;color:var(--muted);text-transform:uppercase;font-family:'DM Mono',monospace;margin-bottom:7px">LEGEND</div>
-        <div style="display:flex;align-items:center;gap:7px;font-size:9px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.08em;margin-bottom:4px"><span style="width:7px;height:7px;border-radius:50%;background:#c8374a;flex-shrink:0;display:inline-block"></span>Industrial Core</div>
-        <div style="display:flex;align-items:center;gap:7px;font-size:9px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.08em;margin-bottom:4px"><span style="width:7px;height:7px;border-radius:50%;background:#3eb89a;flex-shrink:0;display:inline-block"></span>Defensive Modernization</div>
-        <div style="display:flex;align-items:center;gap:7px;font-size:9px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.08em;margin-bottom:4px"><span style="width:7px;height:7px;border-radius:50%;background:#7b9fd4;flex-shrink:0;display:inline-block"></span>Colonized / Deindustrialized</div>
-        <div style="display:flex;align-items:center;gap:7px;font-size:9px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.08em"><span style="width:7px;height:7px;border-radius:50%;background:#a78bfa;flex-shrink:0;display:inline-block"></span>Declining / Resisting</div>
-      </div>
-    </div>
-    <div id="mapInfoPanel" style="background:rgba(11,14,19,0.9);border:1px solid var(--border);border-radius:14px;padding:24px 28px">
-      <div id="mapInfoTitle" style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.1em;color:var(--teal);margin-bottom:10px">CLICK A REGION TO EXPLORE</div>
-      <div id="mapInfoBody" style="font-family:'Crimson Pro',serif;font-size:15px;color:#94a3b8;line-height:1.65">Select any highlighted region on the map above to read about its role in the Industrial Revolution and the age of imperialism.</div>
-    </div>
-  </div>
-
   <!-- ═══ STUDY HUB ═══ -->
   <div class="tab-content" id="tab-studyhub">
     <div class="page-header">
@@ -1229,7 +1203,7 @@
     <button class="upd-close" onclick="closeUpdateLog()">✕ CLOSE</button>
     <div class="upd-header-tag">What's New</div>
     <div class="upd-header-title">V1.0</div>
-    <div class="upd-header-sub">Unit 6 launch — Industrialization & Imperialism. Gear/steam loading animation, 42 glossary terms, 12 quiz questions, interactive Empire Map.</div>
+    <div class="upd-header-sub">Unit 6 launch — Industrialization & Imperialism. Gear/steam loading animation, 42 glossary terms, 12 quiz questions.</div>
     <div class="upd-version">
       <div class="upd-v-tag" style="background:rgba(200,55,74,0.1);border-color:rgba(200,55,74,0.35);color:var(--iron)">V1.0 <span class="upd-v-date">— April 2026</span></div>
       <ul class="upd-feature-list v105-list">
@@ -1241,7 +1215,6 @@
         <li><span class="ufl-badge">New</span><span class="ufl-name">Labor & Society Tab</span><span class="ufl-dash">—</span><span class="ufl-desc">Working conditions, Luddites, unions, urbanization — the human cost of industrialization</span></li>
         <li><span class="ufl-badge">New</span><span class="ufl-name">Capitalism Tab</span><span class="ufl-dash">—</span><span class="ufl-desc">Adam Smith, Marxism, utopian socialism, Bismarck's welfare state, women's movements</span></li>
         <li><span class="ufl-badge">New</span><span class="ufl-name">Imperialism Tab</span><span class="ufl-dash">—</span><span class="ufl-desc">Motives for empire, Scramble for Africa, British Raj, anti-colonial resistance — all AP HIGH FREQ</span></li>
-        <li><span class="ufl-badge">New</span><span class="ufl-name">Empire Map</span><span class="ufl-dash">—</span><span class="ufl-desc">Interactive canvas map with 12 regions — Britain, Germany, USA, Japan, Russia, India, Africa, China, Ottoman, Ethiopia, Latin America, Australia</span></li>
         <li><span class="ufl-badge">New</span><span class="ufl-name">42 Glossary Cards</span><span class="ufl-dash">—</span><span class="ufl-desc">All key Unit 6 terms across Origins, Technology, Spread, Labor, Economics, and Imperialism categories</span></li>
         <li><span class="ufl-badge">New</span><span class="ufl-name">12 Quiz Questions</span><span class="ufl-dash">—</span><span class="ufl-desc">AP-level questions covering all tabs including imperialism — predicted AP score and wrong answer tracking</span></li>
       </ul>
@@ -1317,7 +1290,6 @@ const tabAmbients = {
   timeline:'radial-gradient(ellipse at 50% 50%, rgba(200,55,74,0.1), transparent 60%)',
   studyhub:'radial-gradient(ellipse at 40% 20%, rgba(200,55,74,0.1), transparent 60%)',
   glossary:'radial-gradient(ellipse at 60% 30%, rgba(167,139,250,0.08), transparent 55%)',
-  map:'radial-gradient(ellipse at 50% 50%, rgba(62,184,154,0.1), transparent 60%)',
 };
 
 function switchTab(id, color) {
@@ -1677,118 +1649,7 @@ function printCheatSheet(){
   const w=window.open('','_blank','width=900,height=700');w.document.write(html);w.document.close();
 }
 
-// ── MAP ──
-const mapRegions = [
-  { id:'britain', label:'Britain — Industrial Core', color:'#c8374a', x:0.455, y:0.22, rx:0.018, ry:0.020,
-    info:'<b>Industrial Revolution Origin</b> — Britain industrializes first (1760s) due to coal/iron deposits, navigable waterways, the Financial Revolution enabling credit, enclosure-driven labor supply, and an empire supplying raw materials. "Workshop of the World" by 1850.' },
-  { id:'germany', label:'Germany', color:'#c8374a', x:0.505, y:0.25, rx:0.022, ry:0.020,
-    info:'<b>German Industrialization</b> — Zollverein customs union (1834) unified German markets. After Bismarck unified Germany (1871), it industrialized at extraordinary speed — overtaking Britain in steel production by 1900. Bismarck\'s welfare state (1880s) was designed to undercut socialist movements.' },
-  { id:'usa', label:'United States', color:'#c8374a', x:0.20, y:0.30, rx:0.055, ry:0.055,
-    info:'<b>American Industrialization</b> — Transcontinental Railroad (1869) unified a continent-sized market. Carnegie\'s steel, Rockefeller\'s oil, and massive immigration (20M workers 1880–1920) made the US the world\'s largest industrial economy by 1900. Ford\'s assembly line (1913) began the mass production era.' },
-  { id:'japan', label:'Japan — Meiji', color:'#3eb89a', x:0.815, y:0.32, rx:0.022, ry:0.025,
-    info:'<b>Meiji Restoration (1868)</b> — After Perry\'s Black Ships (1853), Japan chose comprehensive modernization over colonization. State-directed industrialization: model factories, sent 10,000+ students abroad, hired foreign advisors. Only non-Western nation to fully industrialize. Defeated China (1895) and Russia (1905).' },
-  { id:'russia', label:'Russia', color:'#e87840', x:0.62, y:0.20, rx:0.09, ry:0.07,
-    info:'<b>Russian Industrialization — Late & State-Led</b> — Serf emancipation (1861) provided labor but redemption payments limited mobility. Trans-Siberian Railroad (1891) connected the empire. Foreign investment financed factories. Industrial growth was real but insufficient — failed modernization → 1905 Revolution → 1917.' },
-  { id:'india', label:'India (British Raj)', color:'#7b9fd4', x:0.645, y:0.38, rx:0.04, ry:0.045,
-    info:'<b>British India — The Raj</b> — Sepoy Mutiny (1857) ended East India Company rule; Crown established direct control. India supplied raw cotton, tea, and opium. 40,000 miles of railroad built for resource extraction, not Indian development. Deindustrialization destroyed Indian textiles. Famines (1876–1900) killed millions while food was exported.' },
-  { id:'africa', label:'Africa — Scramble', color:'#7b9fd4', x:0.50, y:0.52, rx:0.075, ry:0.10,
-    info:'<b>Scramble for Africa (1880s–1914)</b> — Berlin Conference (1884) partitions Africa with no African representatives. "Effective occupation" rule triggers land grab. By 1914 only Ethiopia and Liberia independent. Belgium\'s Congo: estimated 10M killed under Leopold II\'s forced rubber extraction. Artificial borders still cause conflict today.' },
-  { id:'china', label:'China (Qing)', color:'#d95f5f', x:0.76, y:0.33, rx:0.05, ry:0.04,
-    info:'<b>China — Failed Modernization</b> — Self-Strengthening Movement (1861–95) adopted Western military tech while preserving Confucian culture. Failed: defeated by France (1885) and Japan (1895). Opium Wars forced unequal treaties. Boxer Rebellion (1899–1901) suppressed by 8-nation coalition. Contrast with Japan\'s comprehensive Meiji modernization.' },
-  { id:'ottoman', label:'Ottoman Empire', color:'#a78bfa', x:0.555, y:0.33, rx:0.040, ry:0.03,
-    info:'<b>Ottoman Decline — "Sick Man of Europe"</b> — Tanzimat Reforms (1839–76) attempted defensive modernization: legal codes, military, education. Accumulated European debt constrained industrialization. Lost territory to nationalist movements. Couldn\'t match Japan\'s comprehensive modernization — remained dependent on European capital.' },
-  { id:'ethiopia', label:'Ethiopia', color:'#3eb89a', x:0.555, y:0.48, rx:0.025, ry:0.022,
-    info:'<b>Ethiopia — Successful Resistance</b> — Emperor Menelik II defeated Italy at the Battle of Adwa (1896) — the only decisive African military victory against a colonial army during the Scramble era. Remained fully independent throughout the colonial period. The model of successful armed anti-colonial resistance.' },
-  { id:'latam', label:'Latin America', color:'#a78bfa', x:0.255, y:0.56, rx:0.055, ry:0.10,
-    info:'<b>Latin America — Economic Imperialism</b> — Politically independent after the 1820s but economically dependent. British investment in railroads and mines. U.S. Monroe Doctrine (1823) kept European powers out while U.S. companies dominated economies. "Banana republics" — political sovereignty without economic independence.' },
-  { id:'australia', label:'Australia', color:'#c8374a', x:0.82, y:0.62, rx:0.045, ry:0.040,
-    info:'<b>British Australia</b> — Settler colony providing wool, gold, and wheat to Britain. Connected via steamship and telegraph. Indigenous populations displaced through disease and violence. White Australia policy (1901) excluded Asian immigration. Model of British settler colonialism versus exploitative colonialism in India and Africa.' },
-];
-
-let mapInited = false;
-function initMap() {
-  if(mapInited) return;
-  const canvas = document.getElementById('worldMapCanvas');
-  if(!canvas) return;
-  mapInited = true;
-  const tooltip = document.getElementById('mapTooltip');
-  let hoveredId = null;
-  function resize(){ canvas.width=canvas.offsetWidth; canvas.height=canvas.offsetHeight; drawMap(); }
-  function drawMap(){
-    const ctx=canvas.getContext('2d'), W=canvas.width, H=canvas.height;
-    ctx.clearRect(0,0,W,H);
-    const ocean=ctx.createLinearGradient(0,0,0,H);
-    ocean.addColorStop(0,'rgba(6,10,18,0.95)'); ocean.addColorStop(1,'rgba(4,8,14,0.95)');
-    ctx.fillStyle=ocean; ctx.fillRect(0,0,W,H);
-    ctx.strokeStyle='rgba(200,55,74,0.04)'; ctx.lineWidth=0.5;
-    for(let x=0;x<W;x+=W/12){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
-    for(let y=0;y<H;y+=H/6){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
-    mapRegions.forEach(r=>{
-      const cx=r.x*W, cy=r.y*H, rx=r.rx*W, ry=r.ry*H;
-      const isHov=hoveredId===r.id;
-      const col=r.color;
-      const hr=parseInt(col.slice(1,3),16), hg=parseInt(col.slice(3,5),16), hb=parseInt(col.slice(5,7),16);
-      const grad=ctx.createRadialGradient(cx,cy,0,cx,cy,Math.max(rx,ry)*2.2);
-      grad.addColorStop(0,`rgba(${hr},${hg},${hb},${isHov?0.22:0.10})`);
-      grad.addColorStop(1,'rgba(0,0,0,0)');
-      ctx.fillStyle=grad; ctx.beginPath(); ctx.ellipse(cx,cy,rx*2.5,ry*2.5,0,0,Math.PI*2); ctx.fill();
-      ctx.beginPath(); ctx.ellipse(cx,cy,rx,ry,0,0,Math.PI*2);
-      ctx.fillStyle=`rgba(${hr},${hg},${hb},${isHov?0.55:0.28})`; ctx.fill();
-      ctx.strokeStyle=`rgba(${hr},${hg},${hb},${isHov?0.9:0.4})`; ctx.lineWidth=isHov?2:1; ctx.stroke();
-      ctx.beginPath(); ctx.arc(cx,cy,isHov?4:2.5,0,Math.PI*2);
-      ctx.fillStyle=isHov?col:'rgba(255,255,255,0.5)'; ctx.fill();
-    });
-  }
-  function getRegionAt(mx,my,W,H){
-    for(const r of [...mapRegions].reverse()){
-      const dx=(mx-r.x*W)/(r.rx*W), dy=(my-r.y*H)/(r.ry*H);
-      if(dx*dx+dy*dy<=1) return r;
-    }
-    return null;
-  }
-  canvas.addEventListener('mousemove',e=>{
-    const rect=canvas.getBoundingClientRect();
-    const mx=e.clientX-rect.left, my=e.clientY-rect.top;
-    const r=getRegionAt(mx,my,canvas.width,canvas.height);
-    const newId=r?r.id:null;
-    if(newId!==hoveredId){hoveredId=newId;drawMap();}
-    if(r){tooltip.style.display='block';tooltip.textContent=r.label;tooltip.style.left=(mx+14)+'px';tooltip.style.top=(my-10)+'px';}
-    else{tooltip.style.display='none';}
-  });
-  canvas.addEventListener('mouseleave',()=>{hoveredId=null;tooltip.style.display='none';drawMap();});
-  canvas.addEventListener('click',e=>{
-    const rect=canvas.getBoundingClientRect();
-    const r=getRegionAt(e.clientX-rect.left,e.clientY-rect.top,canvas.width,canvas.height);
-    if(r){
-      document.getElementById('mapInfoTitle').textContent=r.label.toUpperCase();
-      document.getElementById('mapInfoBody').innerHTML=r.info;
-      document.getElementById('mapInfoTitle').style.color=r.color;
-    }
-  });
-  new ResizeObserver(resize).observe(canvas);
-  resize();
-}
-// Hook tab switch to init map
-document.addEventListener('click',e=>{if(e.target.closest('[onclick*="map"]'))setTimeout(initMap,50);});
-
-// ── KEYBOARD ──
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){closeTopSearch();closeSbSearch();['quizModal','drillOverlay','essayModal'].forEach(id=>{const el=document.getElementById(id);if(el){el.classList.remove('open');el.style.display='none';}});document.getElementById('settingsModal').style.display='none';}
-  if(e.altKey&&e.key==='s'){e.preventDefault();document.getElementById('topInput').focus();openTopSearch();}
-});
-document.addEventListener('click',e=>{
-  if(!e.target.closest('#topSearch'))closeTopSearch();
-  if(!e.target.closest('#sbSearchPanel')&&!e.target.closest('.sb-search-trigger'))closeSbSearch();
-});
-
-// ── INIT ──
-document.addEventListener('DOMContentLoaded',()=>{
-  document.getElementById('bgGlow').style.background='radial-gradient(ellipse at 60% 40%, #e87840, transparent 70%)';
-  document.getElementById('ambientOverlay').style.background=tabAmbients.dashboard;
-  renderGlossary('');
-  animateBars();
-  showDyk();
-});
+// 
 </script>
 
 </body>
