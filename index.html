@@ -86,12 +86,12 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .ucard > *{position:relative;z-index:1;}
 
 /* hover lift */
-.ucard:hover{
+.ucard:not(.u-disabled):hover{
   border-color:var(--hb,rgba(255,255,255,.15));
   transform:translateY(-10px) scale(1.02);
   box-shadow:0 28px 80px rgba(0,0,0,.65),0 0 0 1px var(--hb,rgba(255,255,255,.08));
 }
-.ucard:hover::before{opacity:1;}
+.ucard:not(.u-disabled):hover::before{opacity:1;}
 
 /* shimmer sweep on hover */
 .ucard .shimmer{
@@ -102,7 +102,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   transition:background-position 0s;
   pointer-events:none;
 }
-.ucard:hover .shimmer{
+.ucard:not(.u-disabled):hover .shimmer{
   background-position:-200% 0;
   transition:background-position .6s ease;
 }
@@ -127,21 +127,58 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .uc-name{font-family:'Crimson Pro',serif;font-style:italic;font-weight:300;font-size:15px;color:var(--muted2);margin-bottom:16px;line-height:1.4;}
 .uc-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:22px;}
 .uc-tag{font-size:6.5px;letter-spacing:.18em;text-transform:uppercase;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);border-radius:99px;padding:3px 8px;color:var(--muted2);transition:border-color .3s,color .3s;}
-.ucard:hover .uc-tag{border-color:rgba(var(--pc),0.25);color:rgba(var(--pc),0.8);}
+.ucard:not(.u-disabled):hover .uc-tag{border-color:rgba(var(--pc),0.25);color:rgba(var(--pc),0.8);}
 .uc-cta{font-size:7.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--ac,var(--gold));display:flex;align-items:center;gap:8px;}
 .uc-arrow{display:inline-block;transition:transform .35s cubic-bezier(.34,1.56,.64,1);}
-.ucard:hover .uc-arrow{transform:translateX(8px);}
+.ucard:not(.u-disabled):hover .uc-arrow{transform:translateX(8px);}
 
-/* pulse ring on hover */
-.ucard::before{
-  content:'';position:absolute;inset:0;border-radius:20px;
-  background:var(--gc,transparent);
-  opacity:0;transition:opacity .4s;pointer-events:none;z-index:0;
+/* ── CRIME TAPE & DISABLED CARD STYLES ── */
+.u-disabled {
+  pointer-events: none; /* Prevents interactions/hover states */
+  background: rgba(10,12,16,0.6); /* Dimmer container background */
+  border-color: rgba(255,255,255,0.03);
 }
-
-/* coming soon */
-.soon-badge{position:absolute;top:16px;right:16px;font-size:6.5px;letter-spacing:.25em;text-transform:uppercase;background:rgba(90,100,120,.1);border:1px solid rgba(90,100,120,.25);border-radius:99px;padding:3px 9px;color:#5a6478;}
-.card-soon{opacity:.4;pointer-events:none;}
+.u-disabled > *:not(.crime-tape) {
+  opacity: 0.35;
+  filter: grayscale(80%);
+}
+.crime-tape {
+  position: absolute;
+  top: 48%;
+  left: -15%;
+  width: 130%;
+  background: #fadb14; /* Standard hazard yellow */
+  color: #111;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 0.25em;
+  text-align: center;
+  padding: 6px 0;
+  transform: translateY(-50%) rotate(-12deg);
+  z-index: 20;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.7), inset 0 0 10px rgba(250,219,20,0.5);
+  border-top: 2px solid #111;
+  border-bottom: 2px solid #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.crime-tape::before, .crime-tape::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 60px;
+  background: repeating-linear-gradient(
+    45deg,
+    #111,
+    #111 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+.crime-tape::before { left: 0; }
+.crime-tape::after { right: 0; }
 
 footer{position:fixed;bottom:26px;left:0;right:0;display:flex;justify-content:center;gap:24px;font-size:7.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);z-index:3;}
 
@@ -178,7 +215,7 @@ footer{position:fixed;bottom:26px;left:0;right:0;display:flex;justify-content:ce
 
   <div class="units">
 
-    <a class="ucard u4" href="apwh-unit4.html">
+    <a class="ucard u4" href="https://apwh-unit4.netlify.app/">
       <canvas class="spark-canvas"></canvas>
       <div class="shimmer"></div>
       <div class="uc-num">Unit 4 · c. 1450 – 1750</div>
@@ -194,7 +231,7 @@ footer{position:fixed;bottom:26px;left:0;right:0;display:flex;justify-content:ce
       <div class="uc-cta">Enter Unit 4 <span class="uc-arrow">→</span></div>
     </a>
 
-    <a class="ucard u5" href="apwh-unit5.html">
+    <a class="ucard u5" href="https://apwh-unit5.netlify.app/">
       <canvas class="spark-canvas"></canvas>
       <div class="shimmer"></div>
       <div class="uc-num">Unit 5 · c. 1750 – 1900</div>
@@ -210,7 +247,7 @@ footer{position:fixed;bottom:26px;left:0;right:0;display:flex;justify-content:ce
       <div class="uc-cta">Enter Unit 5 <span class="uc-arrow">→</span></div>
     </a>
 
-    <a class="ucard u6" href="apwh-unit6.html">
+    <a class="ucard u6" href="https://apwh-unit6.netlify.app/">
       <canvas class="spark-canvas"></canvas>
       <div class="shimmer"></div>
       <div class="uc-num">Unit 6 · c. 1750 – 1900</div>
@@ -226,9 +263,9 @@ footer{position:fixed;bottom:26px;left:0;right:0;display:flex;justify-content:ce
       <div class="uc-cta">Enter Unit 6 <span class="uc-arrow">→</span></div>
     </a>
 
-    <a class="ucard u7" href="apwh-unit7.html">
-      <canvas class="spark-canvas"></canvas>
-      <div class="shimmer"></div>
+    <!-- UNIT 7 DISABLED WITH COMING SOON TAPE -->
+    <div class="ucard u7 u-disabled">
+      <div class="crime-tape">COMING SOON</div>
       <div class="uc-num">Unit 7 · c. 1900 – 1945</div>
       <div class="uc-era">Global<br>Conflict</div>
       <div class="uc-name">World Wars & Mass Atrocities</div>
@@ -239,8 +276,8 @@ footer{position:fixed;bottom:26px;left:0;right:0;display:flex;justify-content:ce
         <span class="uc-tag">Interwar Period</span>
         <span class="uc-tag">Total War</span>
       </div>
-      <div class="uc-cta">Enter Unit 7 <span class="uc-arrow">→</span></div>
-    </a>
+      <div class="uc-cta">Unit Locked <span class="uc-arrow">🔒</span></div>
+    </div>
 
   </div>
 </div>
@@ -275,7 +312,7 @@ setTimeout(() => {
 function initCards() {
   document.querySelectorAll('.ucard').forEach(card => {
     const canvas = card.querySelector('canvas.spark-canvas');
-    if (!canvas) return;
+    if (!canvas) return; // Ignores disabled cards automatically since we removed their canvas
     const ctx = canvas.getContext('2d');
 
     // parse rgb from CSS var --pc (e.g. "201,168,76")
@@ -343,6 +380,7 @@ function initCards() {
     }
 
     card.addEventListener('mouseenter', () => {
+      if(card.classList.contains('u-disabled')) return;
       isHovered = true;
       cur.style.width = '20px';
       cur.style.height = '20px';
